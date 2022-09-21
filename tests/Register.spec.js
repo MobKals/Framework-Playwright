@@ -2,6 +2,7 @@ const {test,expect} = require('@playwright/test');
 
 
 test('Your Logo login Test', async({browser})=>
+
 {
     //chrome - plugin/cookies
         const context = await browser.newContext(); //browser instance is open without cookies
@@ -12,5 +13,14 @@ test('Your Logo login Test', async({browser})=>
         await page.locator("#email_create").type("kalyanin@mobiquityinc.com");
         await page.locator("button[id='SubmitCreate'] span").click();
         await page.waitForLoadState('networkidle');
+        //RadioButton
+        await page.locator(".radio").last().click();
+        await page.locator("#customer_firstname").type("Kalyani");
+        await page.locator("#customer_lastname").type("Nam");
+        await page.locator("#email").type("kalyanin@mobiquityinc.com");
+        await page.locator("##passwd").type("Kal$$22");
+
+
+
         
 });
